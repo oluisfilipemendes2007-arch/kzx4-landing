@@ -14,12 +14,15 @@ export default function LatestRelease() {
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
         >
-          <div>
-            <h2 className="section-title">ÚLTIMO LANÇAMENTO</h2>
-            <span className="section-subtitle">Single</span>
+          <div className="section-heading">
+            <div className="section-title-line" />
+            <div>
+              <h2 className="section-title">ÚLTIMO LANÇAMENTO</h2>
+              <span className="section-subtitle">Álbum</span>
+            </div>
           </div>
 
-          <div className="section-number">000</div>
+          <div className="section-number">001</div>
         </motion.div>
 
         <div className="release-card">
@@ -61,16 +64,6 @@ export default function LatestRelease() {
             viewport={{ once: true, amount: 0.2 }}
           >
             <div>
-              <motion.div
-                className="release-meta"
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.15, duration: 0.5 }}
-              >
-                <span className="meta-badge">novo hit</span>
-                <span className="meta-text"></span>
-              </motion.div>
 
               <motion.h3
                 className="release-title"
@@ -79,7 +72,7 @@ export default function LatestRelease() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.25, duration: 0.6 }}
               >
-                Backwoods
+                Fragmentos Perdidos
               </motion.h3>
 
               <motion.div
@@ -104,9 +97,7 @@ export default function LatestRelease() {
   </div>
 
   {/* frase */}
-  <p className="parallel-cinematic-text">
-  Todos os caminhos levam a <strong>BACKWOODS</strong>
-</p>
+  <p className="parallel-cinematic-text"></p>
 </motion.div>
 
               <motion.div
@@ -117,14 +108,31 @@ export default function LatestRelease() {
                 transition={{ delay: 0.45, duration: 0.6 }}
               >
                 <motion.a
-                  href="https://open.spotify.com/intl-pt/track/0iM0Mk5fI8h3VX07A9Q4z1"
+                  href="https://open.spotify.com/album/3UMCWdwysHZKZFtKR0rIDy"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="spotify-button"
                   whileHover={{ scale: 1.06, y: -2 }}
                   whileTap={{ scale: 0.96 }}
+                  animate={{ y: [0, -2, 0] }}
+                  transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+                  initial={false}
                 >
-                  Ouvir no Spotify
+                  Ouça no Spotify
+                </motion.a>
+
+                <motion.a
+                  href="https://www.youtube.com/watch?v=8JxQclGQn-g&list=OLAK5uy_khW6OhuyTCSAWvPw25HePLWZc-61dkiWQ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="spotify-button"
+                  whileHover={{ scale: 1.06, y: -2 }}
+                  whileTap={{ scale: 0.96 }}
+                  animate={{ y: [0, -2, 0] }}
+                  transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+                  initial={false}
+                >
+                  Ouça no YouTube
                 </motion.a>
               </motion.div>
             </div>

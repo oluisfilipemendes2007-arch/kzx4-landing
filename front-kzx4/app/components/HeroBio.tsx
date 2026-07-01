@@ -50,9 +50,9 @@ export default function HeroBio() {
             whileTap={{ scale: 0.96 }}
             animate={{
               boxShadow: [
-                "0 0 0px rgba(168,85,247,0)",
-                "0 0 18px rgba(168,85,247,0.35)",
-                "0 0 0px rgba(168,85,247,0)",
+                "0 0 0px rgba(90,169,255,0)",
+                "0 0 18px rgba(90,169,255,0.35)",
+                "0 0 0px rgba(90,169,255,0)",
               ],
             }}
             transition={{

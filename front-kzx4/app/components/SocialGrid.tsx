@@ -11,12 +11,6 @@ const socialItems = [
     link: "https://open.spotify.com/intl-pt/artist/3TgcBvNKbCNKuI72HwwTeC",
   },
   {
-    name: "YouTube",
-    action: "Assista",
-    icon: "/icons/youtube.png",
-    link: "https://www.youtube.com/channel/UCfBwl-2eGa1TNzeY4ZkbIBQ",
-  },
-  {
     name: "Instagram",
     action: "Siga",
     icon: "/icons/instagram.png",
@@ -47,7 +41,7 @@ export default function SocialGrid() {
               href={item.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="social-card"
+              className={`social-card${index === socialItems.length - 1 ? " social-card-last" : ""}`}
               variants={fadeUp}
               whileHover={{ y: -10, scale: 1.04 }}
               whileTap={{ scale: 0.96 }}

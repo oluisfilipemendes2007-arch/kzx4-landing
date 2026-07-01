@@ -15,10 +15,11 @@ export default function Header() {
 
         {/* LOGO */}
         <motion.div
-          className="logo"
+          className="logo-wrap"
           whileHover={{ scale: 1.05 }}
         >
-          KAUÃ
+          <div className="logo">KAUÃ</div>
+          <div className="logo-subtitle">Produtor Musical • Artista • Compositor</div>
         </motion.div>
 
         {/* FRASE + LINK */}
@@ -30,7 +31,7 @@ export default function Header() {
           whileHover={{ scale: 1.06, y: -2 }}
           whileTap={{ scale: 0.92 }}
         >
-        Quer produzir comigo?
+        Quer produzir sua música comigo?
         </motion.a>
 
       </nav>
