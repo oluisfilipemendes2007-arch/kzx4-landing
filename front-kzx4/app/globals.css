@@ -621,6 +621,13 @@ h3,
   flex-wrap: wrap;
 }
 
+.footer-logo,
+.footer-text,
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+
 .footer-text {
   margin-left: auto;
 }
@@ -828,6 +835,16 @@ h3,
   .footer-content {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .footer-logo,
+  .footer-text,
+  .footer-links {
+    align-items: flex-start;
+  }
+
+  .footer-text {
+    margin-left: 0;
   }
 }
 
