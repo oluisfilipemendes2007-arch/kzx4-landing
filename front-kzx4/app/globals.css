@@ -890,21 +890,15 @@ h3,
 
   .social-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
     width: min(100%, 320px);
   }
 
   .social-card {
     width: 100%;
-    min-height: 140px;
+    min-height: 96px;
     max-width: none;
-  }
-
-  .social-card-last {
-    margin-top: 0;
-    align-self: center;
-    justify-self: center;
   }
 
   .meta-badge {
