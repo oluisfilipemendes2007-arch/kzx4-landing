@@ -51,7 +51,7 @@ export default function SocialGrid() {
               <motion.img
                 src={item.icon}
                 alt={item.name}
-                className="social-icon-img"
+                className={`social-icon-img${item.name === "TikTok" ? " social-icon-img--tiktok" : ""}`}
                 whileHover={{ rotate: 3, scale: 1.08 }}
                 transition={{ duration: 0.25 }}
               />

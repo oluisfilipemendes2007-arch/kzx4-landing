@@ -555,10 +555,20 @@ h3,
   transition: 0.3s;
 }
 
+.social-icon-img--tiktok {
+  width: 38px;
+  height: 38px;
+}
+
 @media (max-width: 480px) {
   .social-icon-img {
-    width: 46px;
-    height: 46px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .social-icon-img--tiktok {
+    width: 38px;
+    height: 38px;
   }
 }
 
