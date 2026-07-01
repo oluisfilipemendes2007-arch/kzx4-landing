@@ -4,12 +4,9 @@ export default function Footer() {
       <div className="container footer-content">
         <div className="footer-logo">KAUÃ</div>
 
-        <div className="footer-text">
-        </div>
+        <div className="footer-text">© 2026 lui5sss</div>
 
         <div className="footer-links">
-          
-
           <a></a>
         </div>
       </div>

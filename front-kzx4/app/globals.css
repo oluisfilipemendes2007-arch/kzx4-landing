@@ -504,7 +504,7 @@ h3,
 
 .social-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 220px));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   justify-content: center;
   gap: 16px;
   width: min(100%, 760px);
@@ -515,7 +515,7 @@ h3,
   position: relative;
   aspect-ratio: 1 / 1;
   width: 100%;
-  max-width: 220px;
+  max-width: none;
   background: #07111f;
   border: 1px solid rgba(90, 169, 255, 0.16);
   display: flex;
@@ -619,6 +619,10 @@ h3,
   align-items: center;
   gap: 24px;
   flex-wrap: wrap;
+}
+
+.footer-text {
+  margin-left: auto;
 }
 
 .footer-logo {
@@ -812,20 +816,13 @@ h3,
   }
 
   .social-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    width: min(100%, 480px);
+    width: min(100%, 520px);
     gap: 12px;
   }
 
   .social-card {
-    max-width: none;
     width: 100%;
     aspect-ratio: 1 / 1;
-  }
-
-  .social-card-last {
-    grid-column: 1 / -1;
-    justify-self: center;
   }
 
   .footer-content {
@@ -1215,9 +1212,8 @@ h3,
   }
 
   .social-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    width: min(100%, 480px);
+    gap: 10px;
+    width: min(100%, 100%);
   }
 
   .social-card {
@@ -1272,9 +1268,4 @@ h3,
     color: #02111f;
   }
 
-  .social-card-last {
-    grid-column: 1 / -1;
-    justify-self: center;
-    width: min(100%, 220px);
-  }
 }
