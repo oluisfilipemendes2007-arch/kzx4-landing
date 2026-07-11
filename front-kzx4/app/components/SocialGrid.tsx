@@ -20,7 +20,7 @@ const socialItems = [
     name: "TikTok",
     action: "Vídeos",
     icon: "/icons/tiktok.png",
-    link: "https://www.tiktok.com/@kauazx4_",
+    link: "https://www.tiktok.com/@ft.kaua?is_from_webapp=1&sender_device=pc",
   },
 ];
 
