@@ -1,9 +1,91 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useRef, useState, type ChangeEvent } from "react";
 import { fadeUp, fadeLeft, fadeRight } from "../animations";
 
 export default function LatestRelease() {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const updateDuration = () => {
+      if (audio.duration && Number.isFinite(audio.duration)) {
+        setDuration(audio.duration);
+      }
+    };
+
+    const handleLoadedMetadata = () => {
+      updateDuration();
+    };
+
+    const handleTimeUpdate = () => {
+      setCurrentTime(audio.currentTime);
+    };
+
+    const handleEnded = () => {
+      setIsPlaying(false);
+    };
+
+    audio.addEventListener("loadedmetadata", handleLoadedMetadata);
+    audio.addEventListener("timeupdate", handleTimeUpdate);
+    audio.addEventListener("ended", handleEnded);
+
+    updateDuration();
+
+    return () => {
+      audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
+      audio.removeEventListener("timeupdate", handleTimeUpdate);
+      audio.removeEventListener("ended", handleEnded);
+    };
+  }, []);
+
+  const audioSrc = "/audio/tevito%20masterizado%20(1).wav";
+
+  const togglePlay = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (audio.paused) {
+      audio.play();
+      setIsPlaying(true);
+    } else {
+      audio.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  const handleSeek = (event: ChangeEvent<HTMLInputElement>) => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const nextTime = Number(event.target.value);
+    audio.currentTime = nextTime;
+    setCurrentTime(nextTime);
+  };
+
+  const handleJump = (offset: number) => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const nextTime = Math.min(Math.max(audio.currentTime + offset, 0), duration || audio.currentTime);
+    audio.currentTime = nextTime;
+    setCurrentTime(nextTime);
+  };
+
+  const formatTime = (time: number) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+  };
+
+  const progressPercent = duration ? (currentTime / duration) * 100 : 0;
+
   return (
     <section className="latest-release">
       <div className="container">
@@ -72,7 +154,7 @@ export default function LatestRelease() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.25, duration: 0.6 }}
               >
-                Fragmentos Perdidos
+                Escutando Tevito
               </motion.h3>
 
               <motion.div
@@ -134,6 +216,44 @@ export default function LatestRelease() {
                 >
                   Ouça no YouTube
                 </motion.a>
+
+                <div className="player-area">
+                  <audio ref={audioRef} src={audioSrc} preload="metadata" />
+
+                  <div className="player-meta">
+                    <div className="player-title"></div>
+                    <div className="player-subtitle"></div>
+                  </div>
+
+                  <div className="progress-bar">
+                    <input
+                      type="range"
+                      min={0}
+                      max={duration || 0}
+                      value={currentTime}
+                      onChange={handleSeek}
+                      className="player-seeker"
+                      aria-label="Progresso da música"
+                    />
+                  </div>
+
+                  <div className="player-bottom">
+                    <div className="player-controls">
+                      <button className="player-icon" aria-label="Voltar 10 segundos" onClick={() => handleJump(-10)}>
+                        ⏮
+                      </button>
+                      <button className="play-button" aria-label={isPlaying ? "Pausar" : "Tocar"} onClick={togglePlay}>
+                        {isPlaying ? "❚❚" : "▶"}
+                      </button>
+                      <button className="player-icon" aria-label="Avançar 10 segundos" onClick={() => handleJump(10)}>
+                        ⏭
+                      </button>
+                    </div>
+                    <div className="player-time">
+                      {formatTime(currentTime)} / {duration ? formatTime(duration) : "0:00"}
+                    </div>
+                  </div>
+                </div>
               </motion.div>
             </div>
           </motion.div>
