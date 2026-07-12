@@ -358,9 +358,16 @@ h3,
   display: block;
 }
 
-.player-icon:hover {
+..player-icon:hover,
+.player-icon:focus,
+.player-icon:active {
   background: transparent;
   color: var(--primary);
+}
+
+.player-icon,
+.play-button {
+  -webkit-tap-highlight-color: transparent;
 }
 
 .play-button {
