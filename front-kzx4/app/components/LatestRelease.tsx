@@ -14,14 +14,8 @@ export default function LatestRelease() {
     const audio = audioRef.current;
     if (!audio) return;
 
-    const updateDuration = () => {
-      if (audio.duration && Number.isFinite(audio.duration)) {
-        setDuration(audio.duration);
-      }
-    };
-
     const handleLoadedMetadata = () => {
-      updateDuration();
+      setDuration(audio.duration);
     };
 
     const handleTimeUpdate = () => {
@@ -35,8 +29,6 @@ export default function LatestRelease() {
     audio.addEventListener("loadedmetadata", handleLoadedMetadata);
     audio.addEventListener("timeupdate", handleTimeUpdate);
     audio.addEventListener("ended", handleEnded);
-
-    updateDuration();
 
     return () => {
       audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
@@ -240,13 +232,26 @@ export default function LatestRelease() {
                   <div className="player-bottom">
                     <div className="player-controls">
                       <button className="player-icon" aria-label="Voltar 10 segundos" onClick={() => handleJump(-10)}>
-                        ⏮
+                        <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+                          <path d="M18 5.5L9 12l9 6.5V5.5zM8 5.5L0 12l8 6.5V5.5z" />
+                        </svg>
                       </button>
                       <button className="play-button" aria-label={isPlaying ? "Pausar" : "Tocar"} onClick={togglePlay}>
-                        {isPlaying ? "❚❚" : "▶"}
+                        {isPlaying ? (
+                          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+                            <rect x="6" y="5" width="4" height="14" />
+                            <rect x="14" y="5" width="4" height="14" />
+                          </svg>
+                        ) : (
+                          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+                            <polygon points="8,5 19,12 8,19" />
+                          </svg>
+                        )}
                       </button>
                       <button className="player-icon" aria-label="Avançar 10 segundos" onClick={() => handleJump(10)}>
-                        ⏭
+                        <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+                          <path d="M6 5.5l9 6.5-9 6.5V5.5zm10 0l8 6.5-8 6.5V5.5z" />
+                        </svg>
                       </button>
                     </div>
                     <div className="player-time">
