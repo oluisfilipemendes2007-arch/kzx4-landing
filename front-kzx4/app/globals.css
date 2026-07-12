@@ -348,7 +348,7 @@ h3,
   width: 52px;
   height: 52px;
   border-radius: 18px;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.08);
   color: var(--text);
 }
 
@@ -361,7 +361,7 @@ h3,
 .player-icon:hover,
 .player-icon:focus,
 .player-icon:active {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.08);
   color: var(--primary);
 }
 
