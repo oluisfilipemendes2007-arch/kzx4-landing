@@ -358,7 +358,7 @@ h3,
   display: block;
 }
 
-..player-icon:hover,
+.player-icon:hover,
 .player-icon:focus,
 .player-icon:active {
   background: transparent;
