@@ -182,7 +182,7 @@ export default function LatestRelease() {
                 transition={{ delay: 0.45, duration: 0.6 }}
               >
                 <motion.a
-                  href="https://open.spotify.com/album/3UMCWdwysHZKZFtKR0rIDy"
+                  href="https://open.spotify.com/intl-pt/track/3dXYbIQYjFlTeZ7fyzU03p?si=094f778cca5f4722"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="spotify-button"
@@ -196,7 +196,7 @@ export default function LatestRelease() {
                 </motion.a>
 
                 <motion.a
-                  href="https://www.youtube.com/watch?v=8JxQclGQn-g&list=OLAK5uy_khW6OhuyTCSAWvPw25HePLWZc-61dkiWQ"
+                  href="https://www.youtube.com/@kaua.junyor"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="spotify-button"
