@@ -14,18 +14,27 @@ export default function LatestRelease() {
     const audio = audioRef.current;
     if (!audio) return;
 
+    const syncDuration = () => {
+      const metadataDuration = audio.duration;
+      if (Number.isFinite(metadataDuration) && metadataDuration > 0) {
+        setDuration(metadataDuration);
+      }
+    };
+
     const handleLoadedMetadata = () => {
-      setDuration(audio.duration);
+      syncDuration();
     };
 
     const handleTimeUpdate = () => {
       setCurrentTime(audio.currentTime);
+      syncDuration();
     };
 
     const handleEnded = () => {
       setIsPlaying(false);
     };
 
+    syncDuration();
     audio.addEventListener("loadedmetadata", handleLoadedMetadata);
     audio.addEventListener("timeupdate", handleTimeUpdate);
     audio.addEventListener("ended", handleEnded);
@@ -65,7 +74,8 @@ export default function LatestRelease() {
     const audio = audioRef.current;
     if (!audio) return;
 
-    const nextTime = Math.min(Math.max(audio.currentTime + offset, 0), duration || audio.currentTime);
+    const audioDuration = Number.isFinite(audio.duration) && audio.duration > 0 ? audio.duration : Infinity;
+    const nextTime = Math.min(Math.max(audio.currentTime + offset, 0), audioDuration);
     audio.currentTime = nextTime;
     setCurrentTime(nextTime);
   };
