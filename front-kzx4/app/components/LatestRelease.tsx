@@ -92,11 +92,11 @@ export default function LatestRelease() {
             <div className="section-title-line" />
             <div>
               <h2 className="section-title">ÚLTIMO LANÇAMENTO</h2>
-              <span className="section-subtitle">Álbum</span>
+              <span className="section-subtitle">Música</span>
             </div>
           </div>
 
-          <div className="section-number">001</div>
+          <div className="section-number"></div>
         </motion.div>
 
         <div className="release-card">
